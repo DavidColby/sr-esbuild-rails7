@@ -1,24 +1,44 @@
-# README
+Until StimulusReflex has an installer that works with non-webpacker setups, don't follow the setup guide all the way through.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Instead start here:
 
-Things you may want to cover:
+```
+bundle add stimulus_reflex --version 3.5.0.pre8
+yarn add stimulus_reflex@3.5.0.pre8
+rails dev:cache
+rails generate stimulus_reflex:initializer
+```
 
-* Ruby version
+Note that these are lifted from the [setup guide](https://docs.stimulusreflex.com/v/v3.5/hello-world/setup), with the extremely important removals of `rake webpacker:install:stimulus` and `rake stimulus_reflex:install`. Those commands won't work without webpacker, and may make things harder for you by creating incorrect configurations on the way.
 
-* System dependencies
+After those tasks from your terminal, next replace the `@hotwired/stimulus` yarn package with `stimulus` in your package.json:
 
-* Configuration
+```json
+{
+  "name": "app",
+  "private": "true",
+  "dependencies": {
+    "stimulus": "^3.0.1",
+    "@hotwired/turbo-rails": "^7.1.0",
+    "esbuild": "^0.14.5",
+    "stimulus_reflex": "^3.5.0-pre8"
+  },
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds"
+  }
+}
+```
 
-* Database creation
+Then, manually create the application controller for SR:
 
-* Database initialization
+```
+touch app/javascript/controllers/application_controller.js
+```
 
-* How to run the test suite
+Fill that in with the contents found [here](https://github.com/DavidColby/sr-esbuild-rails7/blob/main/app/javascript/controllers/application_controller.js)
 
-* Services (job queues, cache servers, search engines, etc.)
+Then update app/javascript/controllers/application.js with the contents found [here](https://github.com/DavidColby/sr-esbuild-rails7/blob/main/app/javascript/controllers/application.js)
 
-* Deployment instructions
+After that, you can jump back over to following along with the setup guide's manual-configuration section, starting with caching updates.
 
-* ...
+You can see the full set of changes to get SR working in the last commit on this repo, which picks up after the bundle and yarn add commands.
