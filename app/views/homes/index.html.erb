@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Homes</h1>
+
+<a href="#"
+  data-reflex="click->Counter#increment"
+  data-step="1" 
+  data-count="<%= @count.to_i %>"
+>Increment <%= @count.to_i %></a>
+
+<div id="homes">
+  <%= render @homes %>
+</div>
+
+<%= link_to "New home", new_home_path %>
