@@ -41,4 +41,4 @@ Then update `app/javascript/controllers/application.js` with the contents found 
 
 After that, you can jump back over to following along with the setup guide's manual-configuration section, starting with caching updates.
 
-You can see the full set of changes to get SR working in the last commit on this repo, which picks up after the bundle and yarn add commands.
+You can see the full set of changes to get SR working in [this commit](https://github.com/DavidColby/sr-esbuild-rails7/commit/c2541185407f558d8c0be2f3fc15de64a37a4de8), which picks up after the bundle and yarn add commands.
