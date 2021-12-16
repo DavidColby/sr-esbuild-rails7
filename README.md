@@ -37,7 +37,7 @@ touch app/javascript/controllers/application_controller.js
 
 Fill that in with the contents found [here](https://github.com/DavidColby/sr-esbuild-rails7/blob/main/app/javascript/controllers/application_controller.js)
 
-Then update app/javascript/controllers/application.js with the contents found [here](https://github.com/DavidColby/sr-esbuild-rails7/blob/main/app/javascript/controllers/application.js)
+Then update `app/javascript/controllers/application.js` with the contents found [here](https://github.com/DavidColby/sr-esbuild-rails7/blob/main/app/javascript/controllers/application.js)
 
 After that, you can jump back over to following along with the setup guide's manual-configuration section, starting with caching updates.
 
